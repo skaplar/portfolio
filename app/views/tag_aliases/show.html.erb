@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @tag_alias.tag_id %>
+</p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @tag_alias.alias %>
+</p>
+
+<%= link_to 'Edit', edit_tag_alias_path(@tag_alias) %> |
+<%= link_to 'Back', tag_aliases_path %>

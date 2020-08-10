@@ -1,0 +1,28 @@
+<h1> New Portfolio </h1>
+
+
+<%= form_with scope: :portfolio, url: portfolio_index_path, local: true do |form| %>
+    
+    <p>
+        <%= form.label :first %><br>
+        <%= form.text_field :first %>
+    </p>
+    
+    <p>
+        <%= form.label :last %><br>
+        <%= form.text_field :last %>
+    </p>
+   
+    <p>
+        <%= form.label :biography %><br>
+        <%= form.text_area :biography %>
+    </p>
+   
+    <p>
+        <%= form.file_field :avatar %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>

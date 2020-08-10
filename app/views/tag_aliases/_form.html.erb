@@ -1,0 +1,28 @@
+<%= form_with(model: tag_alias, local: true) do |form| %>
+  <% if tag_alias.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tag_alias.errors.count, "error") %> prohibited this tag_alias from being saved:</h2>
+
+      <ul>
+        <% tag_alias.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= form.label :tag %>
+      <%= form.select :tag_id, options_for_select(@tags.map { |t| [t.name, t.id]}, :selected => @tag_alias.tag.id) %>
+  </div>
+  <%# <%= form.select :tag_id, @tags %> %>
+
+  <div class="field">
+    <%= form.label :alias %>
+    <%= form.text_field :alias %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
