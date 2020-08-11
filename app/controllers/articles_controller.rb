@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  
+
   # GET /articles
   # GET /articles.json
   def index
@@ -25,6 +27,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.article_image.attach(params[:article][:article_image])
 
     respond_to do |format|
       if @article.save
@@ -69,6 +72,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :content, :tag_id)
+      params.require(:article).permit(:title, :content, :tag_id, :article_image)
     end
 end

@@ -15,5 +15,12 @@
   <%= @article.tag_id %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <%= @article.article_image.attached? %>
+</p>
+
+ <p><%= image_tag(@article.article_image) if @article.article_image.attached? %></p>
+
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
