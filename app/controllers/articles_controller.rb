@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @tags = Tag.all
   end
 
   # GET /articles/1/edit
@@ -28,6 +29,9 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.article_image.attach(params[:article][:article_image])
+
+
+
 
     respond_to do |format|
       if @article.save
@@ -72,6 +76,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :content, :tag_id, :article_image)
+      params.require(:article).permit(:title, :content, :article_image, :tag_ids => [])
     end
 end

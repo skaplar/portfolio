@@ -23,7 +23,8 @@
 
   <div class="field">
     <%= form.label :tag_id %>
-    <%= form.text_field :tag_id %>
+    <%= form.select :tag_ids, options_from_collection_for_select(Tag.all, :id, :name), {:include_blank => false, :include_hidden => false}, {:multiple => true} %>
+    <a href="">+</a>
   </div>
 
   <div class="field">
