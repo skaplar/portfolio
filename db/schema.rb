@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_110144) do
+ActiveRecord::Schema.define(version: 2020_08_22_104741) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 2020_08_19_110144) do
     t.integer "tag_id", null: false
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string "text"
+    t.integer "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_notes_on_article_id"
+  end
+
   create_table "tag_aliases", force: :cascade do |t|
     t.integer "tag_id", null: false
     t.string "alias"
@@ -60,5 +68,6 @@ ActiveRecord::Schema.define(version: 2020_08_19_110144) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "notes", "articles"
   add_foreign_key "tag_aliases", "tags"
 end
