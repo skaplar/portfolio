@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :portfolio
   resources :articles do
-    resources :notes
+    resources :notes, only: [:index, :new, :create, :destroy]
   end
 
   root 'home#index'

@@ -16,9 +16,7 @@
       <tr>
         <td><%= note.text %></td>
         <td><%= note.article_id %></td>
-        <td><%= link_to 'Show', article_note_path(@article, note)  %></td>
-<!--        <td><%#= link_to 'Edit', edit_note_path(note) %></td>-->
-<!--        <td><%#= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        <td><%= link_to 'Destroy', article_note_path(@article, note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +25,4 @@
 <br>
 
 <%= link_to 'New Note', new_article_note_path(@article) %>
+<%= link_to 'Back', article_path(@article) %>
