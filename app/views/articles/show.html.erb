@@ -11,8 +11,11 @@
 </p>
 
 <p>
-  <strong>Tag:</strong>
-  <%#= @article.tag_id %>
+  <strong>Tags:</strong>
+  <% @article.tags.each do |tag| %>
+    <b>#<%= tag.name %></b>
+  <% end %>
+
 </p>
 
 <p>
