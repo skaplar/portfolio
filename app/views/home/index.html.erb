@@ -3,3 +3,10 @@
 <p>Go to the Tags <%= link_to 'Tags', tags_path %> </p>
 <p>Go to the Tag Aliases <%=link_to 'Tag aliases', tag_aliases_path %> </p>
 <p>Go to the Articles <%= link_to 'Articles', articles_path %> </p>
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Log Out", logout_path %>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or
+  <%= link_to "Log In", login_path %>
+<% end %>
