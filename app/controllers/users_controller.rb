@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in
+  before_action :logged_in, :current_user, :is_admin
 
   # GET /users
   # GET /users.json
@@ -67,6 +67,12 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+
+  def is_admin
+    unless @current_user.admin
+      redirect_to :login
+    end
+  end
 
     # Only allow a list of trusted parameters through.
     def user_params
