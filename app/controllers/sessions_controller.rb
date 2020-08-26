@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
+        session[:user] = user
         format.html { redirect_to root_url, notice: "Logged in!" }
       else
         format.html { redirect_to :login, alert: "Email or password is invalid" }

@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :get_article, only: [:index, :new, :create, :destroy]
+  before_action :logged_in
 
   # GET /notes
   # GET /notes.json

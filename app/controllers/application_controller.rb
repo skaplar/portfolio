@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  helper_method :current_user, :first_user
 
   def current_user
     if session[:user_id]
@@ -8,4 +8,15 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
+  def first_user
+    !User.exists?
+  end
+
+  def logged_in
+    unless session[:user_id]
+      redirect_to :login
+    end
+  end
+
 end

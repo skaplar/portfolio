@@ -1,5 +1,6 @@
 class TagAliasesController < ApplicationController
   before_action :set_tag_alias, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in
 
   # GET /tag_aliases
   # GET /tag_aliases.json
