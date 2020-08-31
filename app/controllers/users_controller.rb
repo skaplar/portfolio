@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in, :current_user, :is_admin
+  before_action :logged_in, :is_admin, except: [:new]
+  before_action :first_user, only: [:new]
 
   # GET /users
   # GET /users.json
@@ -65,11 +66,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find_by(id: params[:id])
     end
 
   def is_admin
-    unless @current_user.admin
+    unless @current_user ? @current_user.admin : nil?
       redirect_to :login
     end
   end
