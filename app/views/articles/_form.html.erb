@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'articles/article' %>
+
 <%= form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">

@@ -17,4 +17,5 @@ require("../custom/articles/articles")
 
 require("trix")
 require("@rails/actiontext")
+require("jquery")
 // require("src/home")
