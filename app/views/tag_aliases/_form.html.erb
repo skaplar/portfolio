@@ -13,9 +13,9 @@
 
   <div class="field">
       <%= form.label :tag %>
-      <%= form.select :tag_id, options_for_select(@tags.map { |t| [t.name, t.id]}, :selected => @tag_alias.tag.id) %>
+      <%= form.select :tag_id, options_for_select(@tags.map { |t| [t.name, t.id]}, :selected => @tag_alias.tag) %>
   </div>
-  <%# <%= form.select :tag_id, @tags %> %>
+<!--  <%# <%= form.select :tag_id, @tags %> %>-->
 
   <div class="field">
     <%= form.label :alias %>

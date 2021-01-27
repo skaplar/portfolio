@@ -1,29 +1,67 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
 
-<p>
-  <strong>Content:</strong>
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+
+<h1><%= @article.title %></h1>
+<div>
+  <div class="p-5 text-center bg-image">
+    <%= image_tag(@article.article_image, :size => "480x240") if @article.article_image.attached?   %>
+  </div>
+</div>
+
+
+
+<article class="blog-post">
+<!--  <h2 class="blog-post-title"> <%#= @article.title %></h2>-->
+  <p class="blog-post-meta"> <%= @article.created_at %> by <a href="#"><%= current_user.first %></a></p>
+
   <%= @article.content %>
-</p>
+
+</article>
+
+
+
+
+<br />
+<!--<p>-->
+<!--  <strong>Title:</strong>-->
+  <%#= @article.title %>
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Content:</strong>-->
+  <%#= @article.content %>
+<!--</p>-->
 
 <p>
   <strong>Tags:</strong>
   <% @article.tags.each do |tag| %>
-    <b>#<%= tag.name %></b>
+<!--    <b>#<%#= tag.name %></b>-->
+    <b>#<%= link_to tag.name, filter_articles_tag_path(query: tag.id) %></b>
   <% end %>
 
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @article.article_image.attached? %>
-</p>
+<!--<p>-->
+<!--  <strong>Image:</strong>-->
+  <%#= @article.article_image.attached? %>
+<!--</p>-->
 
- <p><%= image_tag(@article.article_image, :size => "480x240") if @article.article_image.attached?   %></p>
+<!-- <p><%#= image_tag(@article.article_image, :size => "480x240") if @article.article_image.attached?   %></p>-->
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %> |

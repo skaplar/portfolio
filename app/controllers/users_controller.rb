@@ -64,16 +64,16 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_user
       @user = User.find_by(id: params[:id])
     end
 
-  def is_admin
-    unless @current_user ? @current_user.admin : nil?
-      redirect_to :login
+    def is_admin
+      unless @current_user ? @current_user.admin : nil?
+        redirect_to :login
+      end
     end
-  end
 
     # Only allow a list of trusted parameters through.
     def user_params

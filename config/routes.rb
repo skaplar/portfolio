@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'search_articles', to:'articles#index'
+  get 'filter_articles_tag', to: 'articles#filter_tags'
 
   # Models manipulation
   resources :users

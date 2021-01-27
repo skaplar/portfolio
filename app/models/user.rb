@@ -1,3 +1,4 @@
+# admin@admin.com - admin
 class User < ApplicationRecord
   has_secure_password
 

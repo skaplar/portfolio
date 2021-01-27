@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    # @articles = Article.all
+    @articles = Search::SearchArticle.new(params).find
   end
 
   # GET /articles/1
@@ -22,6 +23,19 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+  end
+
+  # This is not used anymore actually, I route search to the index, and use it to display results
+  def search
+    query_param = params[:query].downcase
+    @found_articles = Article.all.where("lower(title) LIKE :query", query: query_param)
+    render "search"
+  end
+
+  def filter_tags
+    q = params[:query]
+    @articles = Article.joins(:tags).where("tags.id = ?", q)
+    render "articles/index"
   end
 
   # POST /articles
