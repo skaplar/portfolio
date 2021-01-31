@@ -1,45 +1,17 @@
-<h1>Hello, Rails!</h1>
-<p>This is a rails test portfolio application. </p>
+<h1 class="text-center">Hello, welcome to Portfolio!</h1>
+<p class="text-center">This is a simple portfolio application. </p>
 
-<ul class="flex">
-  <li class="mr-3">
-    <a class="inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white" href="#">Active Pill</a>
-  </li>
-  <li class="mr-3">
-    <a class="inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-1 px-3" href="#">Pill</a>
-  </li>
-  <li class="mr-3">
-    <a class="inline-block py-1 px-3 text-gray-400 cursor-not-allowed" href="#">Disabled Pill</a>
-  </li>
-</ul>
-
-
-<p>Go to the Tags <%= link_to 'Tags', tags_path %> </p>
-<p>Go to the Tag Aliases <%=link_to 'Tag aliases', tag_aliases_path %> </p>
-<p>Go to the Articles <%= link_to 'Articles', articles_path %> </p>
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", signup_path %> or
-  <%= link_to "Log In", login_path %>
-<% end %>
+<div class="text-center">
+  <% if current_user %>
+    You are logged in as <%= current_user.email %>.
+    <br />
+    <%= link_to "Log Out", logout_path %>
+  <% else %>
+    <%= link_to "Sign Up", signup_path %> or
+    <%= link_to "Log In", login_path %>
+  <% end %>
+</div>
 
 <% if first_user %>
   Yaaay you're first
 <% end %>
-
-<!--<div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">-->
-<!--  <div class="sm:flex sm:items-center px-6 py-4">-->
-<!--    <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="https://avatars2.githubusercontent.com/u/4323180?s=400&u=4962a4441fae9fba5f0f86456c6c506a21ffca4f&v=4" alt="">-->
-<!--    <div class="text-center sm:text-left sm:flex-grow">-->
-<!--      <div class="mb-4">-->
-<!--        <p class="text-xl leading-tight">Adam Wathan</p>-->
-<!--        <p class="text-sm leading-tight text-grey-dark">Developer at NothingWorks Inc.</p>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <button class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-purple text-purple hover:bg-purple hover:text-white">Message</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
