@@ -27,9 +27,9 @@ class ArticlesController < ApplicationController
 
   # This is not used anymore actually, I route search to the index, and use it to display results
   def search
-    query_param = params[:query].downcase
-    @found_articles = Article.all.where("lower(title) LIKE :query", query: query_param)
-    render "search"
+    # query_param = params[:query].downcase
+    # @found_articles = Article.all.where("lower(title) LIKE :query", query: query_param)
+    # render "search"
   end
 
   def filter_tags

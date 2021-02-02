@@ -2,7 +2,7 @@
 
 <h1>Articles</h1>
 
-<%= link_to 'New Article', new_article_path, class: "btn btn-link btn-sm float-right " %>
+<%= link_to 'New Article', new_article_path, class: "m-1 btn btn-outline-success btn-sm float-right " %>
 
 
 <table class="table table-striped">
@@ -19,7 +19,7 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
-        <td><%= article.content %></td>
+        <td ><%= article.content.to_plain_text.truncate(100) %></td>
         <td>
           <% article.tags.each do |tag| %>
             #<%= link_to tag.name, filter_articles_tag_path(query: tag.id) %>

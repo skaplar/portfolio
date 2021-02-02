@@ -61,4 +61,9 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.webpacker.check_yarn_integrity = false
+
+  # config.active_storage.variable_content_types =
+  #     %w(image/png image/gif image/jpg image/jpeg image/pjpeg image/tiff image/bmp image/vnd.adobe.photoshop image/vnd.microsoft.icon image/webp image/heic)
+
+
 end
